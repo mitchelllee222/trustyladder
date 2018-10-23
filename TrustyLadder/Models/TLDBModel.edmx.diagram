@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="428e0503048249a19ee7765c9951bf4f" Name="Diagram1">
+        <EntityTypeShape EntityType="TLDBModels.tl_customers" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_materials" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_project_materials" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_project_services" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_projects" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_serviceaddresses" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_services" Width="1.5" PointX="5.125" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="TLDBModels.customermaster" ManuallyRouted="false" />
+        <AssociationConnector Association="TLDBModels.materialmaster" ManuallyRouted="false" />
+        <AssociationConnector Association="TLDBModels.servicemaster" ManuallyRouted="false" />
+        <AssociationConnector Association="TLDBModels.serviceaddressmaster" ManuallyRouted="false" />
+        <AssociationConnector Association="TLDBModels.projectmaster" />
+        <AssociationConnector Association="TLDBModels.projservmaster" />
+        <AssociationConnector Association="TLDBModels.FK_CM1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

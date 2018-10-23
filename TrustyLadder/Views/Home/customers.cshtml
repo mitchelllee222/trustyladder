@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "customers";
+}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TrustyLadder</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="customers">Customers</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h2>customers</h2>
+
+@(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_customers>()
+    .DataSource(ds => ds.WebApi()
+		.RouteName("tl_customersApi")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .DeleteAction("Delete")
+        .Key("id")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.id);
+
+        columns.AddFor(m => m.first_name);
+
+        columns.AddFor(m => m.last_name);
+
+        columns.AddFor(m => m.business_name);
+
+        columns.AddFor(m => m.address1);
+
+        columns.AddFor(m => m.address2);
+
+        columns.AddFor(m => m.city);
+
+        columns.AddFor(m => m.state);
+
+        columns.AddFor(m => m.zip_code);
+    })
+    .Paging(p => p.PageSize(10))
+    .FilterRow(f => f.Visible(true))
+    .HeaderFilter(f => f.Visible(true))
+    .Editing(e => e
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .Mode(GridEditMode.Form)
+    )
+)
