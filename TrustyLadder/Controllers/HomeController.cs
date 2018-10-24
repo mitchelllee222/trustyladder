@@ -14,5 +14,20 @@ namespace TrustyLadder.Controllers {
         {
             return View();
         }
+
+        public ActionResult Projects()
+        {
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            return View();
+        }
+
+        public ActionResult Materials()
+        {
+            return View();
+        }
     }
 }

@@ -26,7 +26,6 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="45" />
           <Property Name="price" Type="double" />
-          <Property Name="tl_materialscol" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="tl_project_materials">
           <Key>
@@ -72,7 +71,6 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="45" />
           <Property Name="price" Type="double" />
-          <Property Name="tl_servicecol" Type="varchar" MaxLength="45" />
         </EntityType>
         <Association Name="FK_CM1">
           <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />
@@ -158,7 +156,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="price" Type="Double" />
-          <Property Name="tl_materialscol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tl_project_materials" Relationship="Self.materialmaster" FromRole="tl_materials" ToRole="tl_project_materials" />
         </EntityType>
         <EntityType Name="tl_project_materials">
@@ -215,7 +212,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="price" Type="Double" />
-          <Property Name="tl_servicecol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tl_project_services" Relationship="Self.servicemaster" FromRole="tl_services" ToRole="tl_project_services" />
         </EntityType>
         <Association Name="customermaster">
@@ -366,7 +362,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="tl_materialscol" ColumnName="tl_materialscol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -417,7 +412,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="tl_servicecol" ColumnName="tl_servicecol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

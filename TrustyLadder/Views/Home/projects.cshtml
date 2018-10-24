@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "projects";
+}
+
+<h2>Projects</h2>
+
+@(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_projects>()
+    .DataSource(ds => ds.WebApi()
+		.RouteName("tl_projectsApi")
+        .LoadAction("Get")
+        .InsertAction("Post")
+        .UpdateAction("Put")
+        .Key("id")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.id);
+
+        columns.AddFor(m => m.customerid);
+
+        columns.AddFor(m => m.customerserviceaddressid);
+    })
+    .Editing(e => e
+        .AllowAdding(true)
+        .AllowUpdating(true)
+        .Mode(GridEditMode.Form)
+    )
+)
