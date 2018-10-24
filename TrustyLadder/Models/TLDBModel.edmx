@@ -86,19 +86,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="materialmaster">
-          <End Role="tl_materials" Type="Self.tl_materials" Multiplicity="0..1" />
-          <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tl_materials">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tl_project_materials">
-              <PropertyRef Name="materialid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="projectmaster">
+        <Association Name="FKProjectProjectMaterials">
           <End Role="tl_projects" Type="Self.tl_projects" Multiplicity="0..1" />
           <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +98,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="projservmaster">
+        <Association Name="FKProjectProjectServices">
           <End Role="tl_projects" Type="Self.tl_projects" Multiplicity="0..1" />
           <End Role="tl_project_services" Type="Self.tl_project_services" Multiplicity="*" />
           <ReferentialConstraint>
@@ -119,18 +107,6 @@
             </Principal>
             <Dependent Role="tl_project_services">
               <PropertyRef Name="projectid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="servicemaster">
-          <End Role="tl_services" Type="Self.tl_services" Multiplicity="0..1" />
-          <End Role="tl_project_services" Type="Self.tl_project_services" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tl_services">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tl_project_services">
-              <PropertyRef Name="serviceid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -146,20 +122,12 @@
             <End Role="tl_customers" EntitySet="tl_customers" />
             <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
           </AssociationSet>
-          <AssociationSet Name="materialmaster" Association="Self.materialmaster">
-            <End Role="tl_materials" EntitySet="tl_materials" />
-            <End Role="tl_project_materials" EntitySet="tl_project_materials" />
-          </AssociationSet>
-          <AssociationSet Name="projectmaster" Association="Self.projectmaster">
+          <AssociationSet Name="FKProjectProjectMaterials" Association="Self.FKProjectProjectMaterials">
             <End Role="tl_projects" EntitySet="tl_projects" />
             <End Role="tl_project_materials" EntitySet="tl_project_materials" />
           </AssociationSet>
-          <AssociationSet Name="projservmaster" Association="Self.projservmaster">
+          <AssociationSet Name="FKProjectProjectServices" Association="Self.FKProjectProjectServices">
             <End Role="tl_projects" EntitySet="tl_projects" />
-            <End Role="tl_project_services" EntitySet="tl_project_services" />
-          </AssociationSet>
-          <AssociationSet Name="servicemaster" Association="Self.servicemaster">
-            <End Role="tl_services" EntitySet="tl_services" />
             <End Role="tl_project_services" EntitySet="tl_project_services" />
           </AssociationSet>
         </EntityContainer>
