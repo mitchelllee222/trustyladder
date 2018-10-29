@@ -24,7 +24,6 @@ namespace TrustyLadder.Models.Controllers
                 i.id,
                 i.description,
                 i.price,
-                i.tl_materialscol
             });
             return Request.CreateResponse(DataSourceLoader.Load(tl_materials, loadOptions));
         }

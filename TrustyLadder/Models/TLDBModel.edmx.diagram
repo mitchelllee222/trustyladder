@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="428e0503048249a19ee7765c9951bf4f" Name="Diagram1">
         <EntityTypeShape EntityType="TLDBModels.tl_customers" Width="1.5" PointX="5.375" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLDBModels.tl_materials" Width="1.5" PointX="10.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_materials" Width="3.375" PointX="10.25" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TLDBModels.tl_project_materials" Width="1.5" PointX="7.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TLDBModels.tl_project_services" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TLDBModels.tl_projects" Width="1.5" PointX="2.25" PointY="4.125" IsExpanded="true" />

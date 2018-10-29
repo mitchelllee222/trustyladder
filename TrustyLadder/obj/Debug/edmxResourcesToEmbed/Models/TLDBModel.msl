@@ -22,7 +22,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="tl_materialscol" ColumnName="tl_materialscol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -73,7 +72,6 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="tl_servicecol" ColumnName="tl_servicecol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

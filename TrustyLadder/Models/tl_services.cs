@@ -23,7 +23,6 @@ namespace TrustyLadder.Models
         public int id { get; set; }
         public string description { get; set; }
         public Nullable<double> price { get; set; }
-        public string tl_servicecol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tl_project_services> tl_project_services { get; set; }

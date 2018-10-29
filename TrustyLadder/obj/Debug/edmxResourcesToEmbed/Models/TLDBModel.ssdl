@@ -21,7 +21,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="45" />
     <Property Name="price" Type="double" />
-    <Property Name="tl_materialscol" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="tl_project_materials">
     <Key>
@@ -67,7 +66,6 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="45" />
     <Property Name="price" Type="double" />
-    <Property Name="tl_servicecol" Type="varchar" MaxLength="45" />
   </EntityType>
   <Association Name="FK_CM1">
     <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />
@@ -78,6 +76,18 @@
       </Principal>
       <Dependent Role="tl_serviceaddresses">
         <PropertyRef Name="CUSTOMERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkprojectmaterialsmaterials">
+    <End Role="tl_materials" Type="Self.tl_materials" Multiplicity="0..1" />
+    <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tl_materials">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tl_project_materials">
+        <PropertyRef Name="materialid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -116,6 +126,10 @@
     <AssociationSet Name="FK_CM1" Association="Self.FK_CM1">
       <End Role="tl_customers" EntitySet="tl_customers" />
       <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
+    </AssociationSet>
+    <AssociationSet Name="fkprojectmaterialsmaterials" Association="Self.fkprojectmaterialsmaterials">
+      <End Role="tl_materials" EntitySet="tl_materials" />
+      <End Role="tl_project_materials" EntitySet="tl_project_materials" />
     </AssociationSet>
     <AssociationSet Name="FKProjectProjectMaterials" Association="Self.FKProjectProjectMaterials">
       <End Role="tl_projects" EntitySet="tl_projects" />
