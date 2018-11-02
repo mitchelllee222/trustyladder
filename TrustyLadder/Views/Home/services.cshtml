@@ -2,7 +2,7 @@
     ViewData["Title"] = "services";
 }
 
-<h2>Services</h2>
+<h2>services</h2>
 
 @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_services>()
     .DataSource(ds => ds.WebApi()
@@ -10,21 +10,23 @@
         .LoadAction("Get")
         .InsertAction("Post")
         .UpdateAction("Put")
+        .DeleteAction("Delete")
         .Key("id")
     )
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.id);
+        columns.AddFor(m => m.description)
+                        .Caption("Description");
 
-        columns.AddFor(m => m.description);
-
-        columns.AddFor(m => m.price);
-
+        columns.AddFor(m => m.rate)
+                    .Caption("Rate")
+                    .DataType(GridColumnDataType.String)
+                    .Format("$ #####.00");
     })
     .Editing(e => e
         .AllowAdding(true)
         .AllowUpdating(true)
-        .Mode(GridEditMode.Form)
+        .AllowDeleting(true)
     )
 )

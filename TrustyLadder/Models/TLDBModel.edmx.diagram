@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="TLDBModels.tl_project_services" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TLDBModels.tl_projects" Width="1.5" PointX="2.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TLDBModels.tl_serviceaddresses" Width="1.5" PointX="7.625" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLDBModels.tl_services" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TLDBModels.tl_services" Width="1.5" PointX="12.75" PointY="3.375" IsExpanded="true" />
         <AssociationConnector Association="TLDBModels.customermaster" ManuallyRouted="false" />
         <AssociationConnector Association="TLDBModels.materialmaster" ManuallyRouted="false" />
         <AssociationConnector Association="TLDBModels.servicemaster" ManuallyRouted="false" />

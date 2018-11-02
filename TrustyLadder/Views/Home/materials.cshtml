@@ -2,32 +2,31 @@
     ViewData["Title"] = "materials";
 }
 
-<h2>Materials</h2>
+<h2>materials</h2>
 
 @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_materials>()
     .DataSource(ds => ds.WebApi()
-        .RouteName("tl_materialsApi")
+		.RouteName("tl_materialsApi")
         .LoadAction("Get")
         .InsertAction("Post")
         .UpdateAction("Put")
+        .DeleteAction("Delete")
         .Key("id")
     )
     .RemoteOperations(true)
     .Columns(columns => {
 
         columns.AddFor(m => m.description)
-            .Caption("Description");
+                    .Caption("Description");
 
         columns.AddFor(m => m.price)
-            .Caption("Price")
-            .DataType(GridColumnDataType.String)
-            .Format("currency");
-
+                    .Caption("Price")
+                    .DataType(GridColumnDataType.String)
+                    .Format("$ #####..00");
     })
-
     .Editing(e => e
         .AllowAdding(true)
         .AllowUpdating(true)
-        .Mode(GridEditMode.Form)
+        .AllowDeleting(true)
     )
 )

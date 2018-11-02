@@ -275,8 +275,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\customers.cshtml" />
     <Content Include="Views\Home\projects.cshtml" />
-    <Content Include="Views\Home\materials.cshtml" />
     <Content Include="Views\Home\services.cshtml" />
+    <Content Include="Views\Home\materials.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

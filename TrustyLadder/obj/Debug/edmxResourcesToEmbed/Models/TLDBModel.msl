@@ -69,9 +69,9 @@
     <EntitySetMapping Name="tl_services">
       <EntityTypeMapping TypeName="TLDBModels.tl_services">
         <MappingFragment StoreEntitySet="tl_services">
+          <ScalarProperty Name="rate" ColumnName="rate" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="price" ColumnName="price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

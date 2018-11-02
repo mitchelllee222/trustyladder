@@ -78,8 +78,8 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="price" Type="Double" />
     <NavigationProperty Name="tl_project_services" Relationship="Self.servicemaster" FromRole="tl_services" ToRole="tl_project_services" />
+    <Property Name="rate" Type="Double" />
   </EntityType>
   <Association Name="customermaster">
     <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />

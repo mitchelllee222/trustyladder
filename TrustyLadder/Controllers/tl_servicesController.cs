@@ -23,7 +23,7 @@ namespace TrustyLadder.Models.Controllers
             var tl_services = _context.tl_services.Select(i => new {
                 i.id,
                 i.description,
-                i.price,
+                i.rate,
             });
             return Request.CreateResponse(DataSourceLoader.Load(tl_services, loadOptions));
         }
@@ -76,7 +76,7 @@ namespace TrustyLadder.Models.Controllers
         private void PopulateModel(tl_services model, IDictionary values) {
             string ID = nameof(tl_services.id);
             string DESCRIPTION = nameof(tl_services.description);
-            string PRICE = nameof(tl_services.price);
+            string RATE = nameof(tl_services.rate);
 
             if(values.Contains(ID)) {
                 model.id = Convert.ToInt32(values[ID]);
@@ -86,8 +86,8 @@ namespace TrustyLadder.Models.Controllers
                 model.description = Convert.ToString(values[DESCRIPTION]);
             }
 
-            if(values.Contains(PRICE)) {
-                model.price = Convert.ToDouble(values[PRICE]);
+            if(values.Contains(RATE)) {
+                model.rate = Convert.ToDouble(values[RATE]);
             }
         }
 

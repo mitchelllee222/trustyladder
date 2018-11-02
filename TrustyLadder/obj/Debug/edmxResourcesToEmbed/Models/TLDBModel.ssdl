@@ -65,7 +65,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="45" />
-    <Property Name="price" Type="double" />
+    <Property Name="rate" Type="double" />
   </EntityType>
   <Association Name="FK_CM1">
     <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />
