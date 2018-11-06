@@ -18,35 +18,39 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">TrustyLadder</a>
+                @Html.ActionLink("Trusty Ladder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="Home/customers">Projects</a></li>
-                    <li><a href="Home/customers">Customers</a></li>
-                    <li><a href="Home/materials">Materials</a></li>
-                    <li><a href="Home/services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+                    <li>@Html.ActionLink("Customers", "Customers", "Home")</li>
+                    <li>@Html.ActionLink("Materials", "Materials", "Home")</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <div class="container">
-        @RenderBody()
     </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Trusty Ladder Inc.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>
