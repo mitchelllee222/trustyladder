@@ -16,8 +16,6 @@
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.id);
-
         columns.AddFor(m => m.first_name);
 
         columns.AddFor(m => m.last_name);
@@ -34,12 +32,60 @@
 
         columns.AddFor(m => m.zip_code);
     })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
     .Editing(e => e
         .AllowAdding(true)
         .AllowUpdating(true)
+        .AllowDeleting(true)
         .Mode(GridEditMode.Form)
     )
+    .MasterDetail(md => md
+    .Enabled(true)
+    .Template(new TemplateName("detailContent"))
+    )
 )
+
+@using (Html.DevExtreme().NamedTemplate("detailContent")){
+   @(Html.DevExtreme().TabPanel()
+        .Items(items => {
+                items.Add()
+                    .Title("Service Addresses")
+                    .Template(new TemplateName("tab1Content"));
+        })
+     )
+}
+
+@using (Html.DevExtreme().NamedTemplate("tab1Content"))
+{
+    @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_serviceaddresses>()
+                            .DataSource(ds => ds.WebApi()
+                            .RouteName("tl_serviceaddressesApi")
+                            .LoadAction("Get")
+                            .InsertAction("Post")
+                            .UpdateAction("Put")
+                            .DeleteAction("Delete")
+                            .Key("ID")
+                            )
+                        .RemoteOperations(true)
+                        .Columns(columns =>
+                            {
+
+                                columns.AddFor(m => m.BUSINESSNAME);
+
+                                columns.AddFor(m => m.ADDRESS1);
+
+                                columns.AddFor(m => m.ADDRESS2);
+
+                                columns.AddFor(m => m.CITY);
+
+                                columns.AddFor(m => m.STATE);
+
+                                columns.AddFor(m => m.ZIP);
+                            })
+                        .Editing(e => e
+                                .AllowAdding(true)
+                                .AllowUpdating(true)
+                                .AllowDeleting(true)
+                                .Mode(GridEditMode.Form)
+                                )
+    )
+}

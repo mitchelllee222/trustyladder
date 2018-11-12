@@ -13,7 +13,6 @@
     <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <Property Name="zip_code" Type="Int32" />
-    <NavigationProperty Name="tl_projects" Relationship="Self.customermaster" FromRole="tl_customers" ToRole="tl_projects" />
     <NavigationProperty Name="tl_serviceaddresses" Relationship="TLDBModels.FK_CM1" FromRole="tl_customers" ToRole="tl_serviceaddresses" />
   </EntityType>
   <EntityType Name="tl_materials">
@@ -52,9 +51,6 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="customerid" Type="Int32" />
     <Property Name="customerserviceaddressid" Type="Int32" />
-    <NavigationProperty Name="tl_customers" Relationship="Self.customermaster" FromRole="tl_projects" ToRole="tl_customers" />
-    <NavigationProperty Name="tl_serviceaddresses" Relationship="Self.serviceaddressmaster" FromRole="tl_projects" ToRole="tl_serviceaddresses" />
-    <NavigationProperty Name="tl_project_materials" Relationship="TLDBModels.projectmaster" FromRole="tl_projects" ToRole="tl_project_materials" />
     <NavigationProperty Name="tl_project_services" Relationship="TLDBModels.projservmaster" FromRole="tl_projects" ToRole="tl_project_services" />
   </EntityType>
   <EntityType Name="tl_serviceaddresses">
@@ -69,7 +65,6 @@
     <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
     <Property Name="ZIP" Type="Int32" />
-    <NavigationProperty Name="tl_projects" Relationship="Self.serviceaddressmaster" FromRole="tl_serviceaddresses" ToRole="tl_projects" />
     <NavigationProperty Name="tl_customers" Relationship="TLDBModels.FK_CM1" FromRole="tl_serviceaddresses" ToRole="tl_customers" />
   </EntityType>
   <EntityType Name="tl_services">
@@ -81,18 +76,6 @@
     <NavigationProperty Name="tl_project_services" Relationship="Self.servicemaster" FromRole="tl_services" ToRole="tl_project_services" />
     <Property Name="rate" Type="Double" />
   </EntityType>
-  <Association Name="customermaster">
-    <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />
-    <End Role="tl_projects" Type="Self.tl_projects" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tl_customers">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="tl_projects">
-        <PropertyRef Name="customerid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="materialmaster">
     <End Role="tl_materials" Type="Self.tl_materials" Multiplicity="0..1" />
     <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
@@ -117,18 +100,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="serviceaddressmaster">
-    <End Role="tl_serviceaddresses" Type="Self.tl_serviceaddresses" Multiplicity="0..1" />
-    <End Role="tl_projects" Type="Self.tl_projects" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tl_serviceaddresses">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="tl_projects">
-        <PropertyRef Name="customerserviceaddressid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="TLDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tl_customers" EntityType="Self.tl_customers" />
     <EntitySet Name="tl_materials" EntityType="Self.tl_materials" />
@@ -137,10 +108,6 @@
     <EntitySet Name="tl_projects" EntityType="Self.tl_projects" />
     <EntitySet Name="tl_serviceaddresses" EntityType="Self.tl_serviceaddresses" />
     <EntitySet Name="tl_services" EntityType="Self.tl_services" />
-    <AssociationSet Name="customermaster" Association="Self.customermaster">
-      <End Role="tl_customers" EntitySet="tl_customers" />
-      <End Role="tl_projects" EntitySet="tl_projects" />
-    </AssociationSet>
     <AssociationSet Name="materialmaster" Association="Self.materialmaster">
       <End Role="tl_materials" EntitySet="tl_materials" />
       <End Role="tl_project_materials" EntitySet="tl_project_materials" />
@@ -148,10 +115,6 @@
     <AssociationSet Name="servicemaster" Association="Self.servicemaster">
       <End Role="tl_services" EntitySet="tl_services" />
       <End Role="tl_project_services" EntitySet="tl_project_services" />
-    </AssociationSet>
-    <AssociationSet Name="serviceaddressmaster" Association="Self.serviceaddressmaster">
-      <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
-      <End Role="tl_projects" EntitySet="tl_projects" />
     </AssociationSet>
     <AssociationSet Name="projectmaster" Association="TLDBModels.projectmaster">
       <End Role="tl_projects" EntitySet="tl_projects" />

@@ -17,7 +17,6 @@ namespace TrustyLadder.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tl_customers()
         {
-            this.tl_projects = new HashSet<tl_projects>();
             this.tl_serviceaddresses = new HashSet<tl_serviceaddresses>();
         }
     
@@ -31,8 +30,6 @@ namespace TrustyLadder.Models
         public string state { get; set; }
         public Nullable<int> zip_code { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tl_projects> tl_projects { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tl_serviceaddresses> tl_serviceaddresses { get; set; }
     }

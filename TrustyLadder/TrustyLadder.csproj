@@ -273,11 +273,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\customers.cshtml" />
     <Content Include="Views\Home\projects.cshtml" />
     <Content Include="Views\Home\services.cshtml" />
     <Content Include="Views\Home\materials.cshtml" />
     <None Include="Views\Home\contact.cshtml" />
+    <Content Include="Views\Home\customers.cshtml" />
+    <Content Include="Views\Home\serviceaddresses.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -350,6 +351,7 @@
     <Compile Include="Controllers\tl_customersController.cs" />
     <Compile Include="Controllers\tl_materialsController.cs" />
     <Compile Include="Controllers\tl_projectsController.cs" />
+    <Compile Include="Controllers\tl_serviceaddressesController.cs" />
     <Compile Include="Controllers\tl_servicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
