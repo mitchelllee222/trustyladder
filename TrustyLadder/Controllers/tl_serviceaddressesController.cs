@@ -33,6 +33,25 @@ namespace TrustyLadder.Models.Controllers
             return Request.CreateResponse(DataSourceLoader.Load(tl_serviceaddresses, loadOptions));
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetServiceAddressesByCustomer(int customerId, DataSourceLoadOptions loadOptions)
+        {
+            var query = from i in _context.tl_serviceaddresses
+                        where i.CUSTOMERID == customerId
+                        select new
+                        {
+                            i.ID,
+                            i.CUSTOMERID,
+                            i.BUSINESSNAME,
+                            i.ADDRESS1,
+                            i.ADDRESS2,
+                            i.CITY,
+                            i.STATE,
+                            i.ZIP
+                        };
+            return Request.CreateResponse(DataSourceLoader.Load(query, loadOptions));
+        }
+
         [HttpPost]
         public HttpResponseMessage Post(FormDataCollection form) {
             var model = new tl_serviceaddresses();
