@@ -20,6 +20,18 @@ namespace TrustyLadder.Models.Controllers
 
         [HttpGet]
         public HttpResponseMessage Get(DataSourceLoadOptions loadOptions) {
+            var query = from i in _context.tl_projects
+                        join c in _context.tl_customers on i.customerid equals c.id
+                        select new
+                        {
+                            i.id,
+                            i.customerid,
+                            c.business_name,
+                            c.first_name,
+                            c.last_name
+                        };
+            return Request.CreateResponse(DataSourceLoader.Load(query, loadOptions));
+
             var tl_projects = _context.tl_projects.Select(i => new {
                 i.id,
                 i.customerid,

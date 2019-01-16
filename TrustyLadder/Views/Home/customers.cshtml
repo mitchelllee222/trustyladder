@@ -72,6 +72,7 @@
                             .Key("ID")
                             )
                         .RemoteOperations(true)
+                        .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("masterGridId.id")))
                         .Columns(columns =>
                         {
 
@@ -95,3 +96,12 @@
                                 )
     )
 }
+
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, parentID) {
+        alert(parentID);
+        e.data.CUSTOMERID = parentID;
+    }
+    //]]>
+</script>

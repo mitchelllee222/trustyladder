@@ -89,3 +89,4 @@ C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\bin\System.Web.WebPage
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\bin\System.Web.WebPages.Razor.xml
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\obj\Debug\TrustyLadder.dll
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\obj\Debug\TrustyLadder.pdb
+C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\obj\Debug\TrustyLadder.csprojResolveAssemblyReference.cache

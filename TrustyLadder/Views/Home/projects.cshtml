@@ -4,7 +4,7 @@
 
 <h2>Projects</h2>
 
-@(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_projects>()
+@(Html.DevExtreme().DataGrid()
     .DataSource(ds => ds.WebApi()
 		.RouteName("tl_projectsApi")
         .LoadAction("Get")
@@ -15,11 +15,15 @@
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.id);
+        columns.Add().DataField("id");
 
-        columns.AddFor(m => m.customerid);
+        columns.Add().DataField("customerid");
 
-        columns.AddFor(m => m.customerserviceaddressid);
+        columns.Add().DataField("business_name");
+
+        columns.Add().DataField("first_name");
+
+        columns.Add().DataField("last_name");
     })
     .Editing(e => e
         .AllowAdding(true)
