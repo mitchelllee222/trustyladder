@@ -4,7 +4,7 @@
 
 <h2>Projects</h2>
 
-@(Html.DevExtreme().DataGrid()
+@(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_projects>()
     .DataSource(ds => ds.WebApi()
 		.RouteName("tl_projectsApi")
         .LoadAction("Get")
@@ -30,4 +30,74 @@
         .AllowUpdating(true)
         .Mode(GridEditMode.Form)
     )
+    .MasterDetail(md => md
+    .Enabled(true)
+    .Template(new TemplateName("detailContent"))
+    )
 )
+
+@using (Html.DevExtreme().NamedTemplate("detailContent"))
+{
+    @(Html.DevExtreme().TabPanel()
+        .Items(items =>
+        {
+            items.Add()
+                .Title("Materials")
+                .Template(new TemplateName("projectMaterialTabContent"))
+                .Option("masterGridId", new { id = new JS("data.id") });
+            items.Add()
+                .Title("Services")
+                .Template(new TemplateName("projectServicesTabContent"))
+                .Option("masterGridId", new { id = new JS("data.id") });
+        })
+    )
+}
+
+@using (Html.DevExtreme().NamedTemplate("projectMaterialTabContent"))
+{
+    @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_project_materials>()
+                            .DataSource(ds => ds.WebApi()
+                            .RouteName("tl_materialsApi")
+                            .LoadAction("GetServiceAddressesByCustomer")
+                            .LoadParams(new
+                            {
+                                customerId = new JS("masterGridId.id")
+                            })
+                            .InsertAction("Post")
+                            .UpdateAction("Put")
+                            .DeleteAction("Delete")
+                            .Key("ID")
+                            )
+                        .RemoteOperations(true)
+                        .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("masterGridId.id")))
+                        .Columns(columns =>
+                        {
+
+                            columns.AddFor(m => m.BUSINESSNAME);
+
+                            columns.AddFor(m => m.ADDRESS1);
+
+                            columns.AddFor(m => m.ADDRESS2);
+
+                            columns.AddFor(m => m.CITY);
+
+                            columns.AddFor(m => m.STATE);
+
+                            columns.AddFor(m => m.ZIP);
+                        })
+                        .Editing(e => e
+                                .AllowAdding(true)
+                                .AllowUpdating(true)
+                                .AllowDeleting(true)
+                                .Mode(GridEditMode.Form)
+                                )
+    )
+}
+
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, parentID) {
+        e.data.PROJECTID = parentID;
+    }
+    //]]>
+</script>

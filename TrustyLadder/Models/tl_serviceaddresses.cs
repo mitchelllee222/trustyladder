@@ -14,14 +14,14 @@ namespace TrustyLadder.Models
     
     public partial class tl_serviceaddresses
     {
-        public int ID { get; set; }
-        public Nullable<int> CUSTOMERID { get; set; }
-        public string BUSINESSNAME { get; set; }
-        public string ADDRESS1 { get; set; }
-        public string ADDRESS2 { get; set; }
-        public string CITY { get; set; }
-        public string STATE { get; set; }
-        public Nullable<int> ZIP { get; set; }
+        public int id { get; set; }
+        public Nullable<int> customerid { get; set; }
+        public string business_name { get; set; }
+        public string address1 { get; set; }
+        public string address2 { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public Nullable<int> zip_code { get; set; }
     
         public virtual tl_customers tl_customers { get; set; }
     }

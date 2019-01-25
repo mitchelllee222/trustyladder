@@ -28,6 +28,29 @@ namespace TrustyLadder.Models.Controllers
             return Request.CreateResponse(DataSourceLoader.Load(tl_materials, loadOptions));
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetMaterialByProject(int projectId, DataSourceLoadOptions loadOptions)
+        {
+            // Get materials tied to project.
+            var queryProject = from i in _context.tl_project_materials
+                               where i.projectid == projectId
+                               select i;
+
+            // Get list of material IDs that are on project.
+            foreach (tl_project_materials item in queryProject){
+
+            }
+
+            // Build query to get materials.
+            var query = from i in _context.tl_materials
+                        where i.id == projectId
+                        select new
+                        {
+                            i.id,
+                        };
+            return Request.CreateResponse(DataSourceLoader.Load(query, loadOptions));
+        }
+
         [HttpPost]
         public HttpResponseMessage Post(FormDataCollection form) {
             var model = new tl_materials();

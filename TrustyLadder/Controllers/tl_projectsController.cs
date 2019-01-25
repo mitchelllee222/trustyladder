@@ -99,10 +99,10 @@ namespace TrustyLadder.Models.Controllers
         [HttpGet]
         public HttpResponseMessage tl_serviceaddressesLookup(DataSourceLoadOptions loadOptions) {
             var lookup = from i in _context.tl_serviceaddresses
-                         orderby i.BUSINESSNAME
+                         orderby i.business_name
                          select new {
-                             Value = i.ID,
-                             Text = i.BUSINESSNAME
+                             Value = i.id,
+                             Text = i.business_name
                          };
             return Request.CreateResponse(DataSourceLoader.Load(lookup, loadOptions));
         }

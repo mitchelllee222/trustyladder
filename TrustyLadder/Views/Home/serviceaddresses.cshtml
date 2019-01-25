@@ -16,19 +16,19 @@
     .RemoteOperations(true)
     .Columns(columns => {
 
-        columns.AddFor(m => m.CUSTOMERID);
+        columns.AddFor(m => m.customerid);
 
-        columns.AddFor(m => m.BUSINESSNAME);
+        columns.AddFor(m => m.business_name);
 
-        columns.AddFor(m => m.ADDRESS1);
+        columns.AddFor(m => m.address1);
 
-        columns.AddFor(m => m.ADDRESS2);
+        columns.AddFor(m => m.address2);
 
-        columns.AddFor(m => m.CITY);
+        columns.AddFor(m => m.city);
 
-        columns.AddFor(m => m.STATE);
+        columns.AddFor(m => m.state);
 
-        columns.AddFor(m => m.ZIP);
+        columns.AddFor(m => m.zip_code);
     })
     .Editing(e => e
         .AllowAdding(true)

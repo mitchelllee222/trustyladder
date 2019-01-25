@@ -21,14 +21,14 @@ namespace TrustyLadder.Models.Controllers
         [HttpGet]
         public HttpResponseMessage Get(DataSourceLoadOptions loadOptions) {
             var tl_serviceaddresses = _context.tl_serviceaddresses.Select(i => new {
-                i.ID,
-                i.CUSTOMERID,
-                i.BUSINESSNAME,
-                i.ADDRESS1,
-                i.ADDRESS2,
-                i.CITY,
-                i.STATE,
-                i.ZIP
+                i.id,
+                i.customerid,
+                i.business_name,
+                i.address1,
+                i.address2,
+                i.city,
+                i.state,
+                i.zip_code
             });
             return Request.CreateResponse(DataSourceLoader.Load(tl_serviceaddresses, loadOptions));
         }
@@ -37,17 +37,17 @@ namespace TrustyLadder.Models.Controllers
         public HttpResponseMessage GetServiceAddressesByCustomer(int customerId, DataSourceLoadOptions loadOptions)
         {
             var query = from i in _context.tl_serviceaddresses
-                        where i.CUSTOMERID == customerId
+                        where i.customerid == customerId
                         select new
                         {
-                            i.ID,
-                            i.CUSTOMERID,
-                            i.BUSINESSNAME,
-                            i.ADDRESS1,
-                            i.ADDRESS2,
-                            i.CITY,
-                            i.STATE,
-                            i.ZIP
+                            i.id,
+                            i.customerid,
+                            i.business_name,
+                            i.address1,
+                            i.address2,
+                            i.city,
+                            i.state,
+                            i.zip_code
                         };
             return Request.CreateResponse(DataSourceLoader.Load(query, loadOptions));
         }
@@ -65,13 +65,13 @@ namespace TrustyLadder.Models.Controllers
             var result = _context.tl_serviceaddresses.Add(model);
             _context.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.Created, result.ID);
+            return Request.CreateResponse(HttpStatusCode.Created, result.id);
         }
 
         [HttpPut]
         public HttpResponseMessage Put(FormDataCollection form) {
             var key = Convert.ToInt32(form.Get("key"));
-            var model = _context.tl_serviceaddresses.FirstOrDefault(item => item.ID == key);
+            var model = _context.tl_serviceaddresses.FirstOrDefault(item => item.id == key);
             if(model == null)
                 return Request.CreateResponse(HttpStatusCode.Conflict, "tl_serviceaddresses not found");
 
@@ -90,7 +90,7 @@ namespace TrustyLadder.Models.Controllers
         [HttpDelete]
         public void Delete(FormDataCollection form) {
             var key = Convert.ToInt32(form.Get("key"));
-            var model = _context.tl_serviceaddresses.FirstOrDefault(item => item.ID == key);
+            var model = _context.tl_serviceaddresses.FirstOrDefault(item => item.id == key);
 
             _context.tl_serviceaddresses.Remove(model);
             _context.SaveChanges();
@@ -109,45 +109,45 @@ namespace TrustyLadder.Models.Controllers
         }
 
         private void PopulateModel(tl_serviceaddresses model, IDictionary values) {
-            string ID = nameof(tl_serviceaddresses.ID);
-            string CUSTOMERID = nameof(tl_serviceaddresses.CUSTOMERID);
-            string BUSINESSNAME = nameof(tl_serviceaddresses.BUSINESSNAME);
-            string ADDRESS1 = nameof(tl_serviceaddresses.ADDRESS1);
-            string ADDRESS2 = nameof(tl_serviceaddresses.ADDRESS2);
-            string CITY = nameof(tl_serviceaddresses.CITY);
-            string STATE = nameof(tl_serviceaddresses.STATE);
-            string ZIP = nameof(tl_serviceaddresses.ZIP);
+            string ID = nameof(tl_serviceaddresses.id);
+            string CUSTOMERID = nameof(tl_serviceaddresses.customerid);
+            string BUSINESSNAME = nameof(tl_serviceaddresses.business_name);
+            string ADDRESS1 = nameof(tl_serviceaddresses.address1);
+            string ADDRESS2 = nameof(tl_serviceaddresses.address2);
+            string CITY = nameof(tl_serviceaddresses.city);
+            string STATE = nameof(tl_serviceaddresses.state);
+            string ZIP = nameof(tl_serviceaddresses.zip_code);
 
             if(values.Contains(ID)) {
-                model.ID = Convert.ToInt32(values[ID]);
+                model.id = Convert.ToInt32(values[ID]);
             }
 
             if(values.Contains(CUSTOMERID)) {
-                model.CUSTOMERID = Convert.ToInt32(values[CUSTOMERID]);
+                model.customerid = Convert.ToInt32(values[CUSTOMERID]);
             }
 
             if(values.Contains(BUSINESSNAME)) {
-                model.BUSINESSNAME = Convert.ToString(values[BUSINESSNAME]);
+                model.business_name = Convert.ToString(values[BUSINESSNAME]);
             }
 
             if(values.Contains(ADDRESS1)) {
-                model.ADDRESS1 = Convert.ToString(values[ADDRESS1]);
+                model.address1 = Convert.ToString(values[ADDRESS1]);
             }
 
             if(values.Contains(ADDRESS2)) {
-                model.ADDRESS2 = Convert.ToString(values[ADDRESS2]);
+                model.address2 = Convert.ToString(values[ADDRESS2]);
             }
 
             if(values.Contains(CITY)) {
-                model.CITY = Convert.ToString(values[CITY]);
+                model.city = Convert.ToString(values[CITY]);
             }
 
             if(values.Contains(STATE)) {
-                model.STATE = Convert.ToString(values[STATE]);
+                model.state = Convert.ToString(values[STATE]);
             }
 
             if(values.Contains(ZIP)) {
-                model.ZIP = Convert.ToInt32(values[ZIP]);
+                model.zip_code = Convert.ToInt32(values[ZIP]);
             }
         }
 

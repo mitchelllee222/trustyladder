@@ -48,16 +48,16 @@
   </EntityType>
   <EntityType Name="tl_serviceaddresses">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CUSTOMERID" Type="int" />
-    <Property Name="BUSINESSNAME" Type="varchar" MaxLength="50" />
-    <Property Name="ADDRESS1" Type="varchar" MaxLength="100" />
-    <Property Name="ADDRESS2" Type="varchar" MaxLength="100" />
-    <Property Name="CITY" Type="varchar" MaxLength="50" />
-    <Property Name="STATE" Type="varchar" MaxLength="2" />
-    <Property Name="ZIP" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerid" Type="int" />
+    <Property Name="business_name" Type="varchar" MaxLength="50" />
+    <Property Name="address1" Type="varchar" MaxLength="100" />
+    <Property Name="address2" Type="varchar" MaxLength="100" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="state" Type="varchar" MaxLength="2" />
+    <Property Name="zip_code" Type="int" />
   </EntityType>
   <EntityType Name="tl_services">
     <Key>
@@ -75,7 +75,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="tl_serviceaddresses">
-        <PropertyRef Name="CUSTOMERID" />
+        <PropertyRef Name="customerid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
