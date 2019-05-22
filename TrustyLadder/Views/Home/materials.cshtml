@@ -6,7 +6,7 @@
 
 @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_materials>()
     .DataSource(ds => ds.WebApi()
-		.RouteName("tl_materialsApi")
+        .RouteName("tl_materialsApi")
         .LoadAction("Get")
         .InsertAction("Post")
         .UpdateAction("Put")
@@ -22,7 +22,11 @@
         columns.AddFor(m => m.price)
                     .Caption("Price")
                     .DataType(GridColumnDataType.String)
-                    .Format("$ #####..00");
+                    .Format("$ #####.00");
+        columns.AddFor(m => m.cost)
+                    .Caption("Cost")
+                    .DataType(GridColumnDataType.String)
+                    .Format("$ #####.00");
     })
     .Editing(e => e
         .AllowAdding(true)

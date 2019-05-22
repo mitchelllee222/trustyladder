@@ -14,17 +14,9 @@ namespace TrustyLadder.Models
     
     public partial class tl_materials
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tl_materials()
-        {
-            this.tl_project_materials = new HashSet<tl_project_materials>();
-        }
-    
         public int id { get; set; }
         public string description { get; set; }
         public Nullable<double> price { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tl_project_materials> tl_project_materials { get; set; }
+        public Nullable<double> cost { get; set; }
     }
 }

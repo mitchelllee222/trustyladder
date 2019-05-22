@@ -1,24 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TLDBModelsStoreContainer" CdmEntityContainer="TLDBEntities">
-    <EntitySetMapping Name="tl_materials">
-      <EntityTypeMapping TypeName="TLDBModels.tl_materials">
-        <MappingFragment StoreEntitySet="tl_materials">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="price" ColumnName="price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tl_project_materials">
-      <EntityTypeMapping TypeName="TLDBModels.tl_project_materials">
-        <MappingFragment StoreEntitySet="tl_project_materials">
-          <ScalarProperty Name="projectid" ColumnName="projectid" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="materialid" ColumnName="materialid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tl_project_services">
       <EntityTypeMapping TypeName="TLDBModels.tl_project_services">
         <MappingFragment StoreEntitySet="tl_project_services">
@@ -71,6 +53,27 @@
           <ScalarProperty Name="address1" ColumnName="address1" />
           <ScalarProperty Name="business_name" ColumnName="business_name" />
           <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tl_materials">
+      <EntityTypeMapping TypeName="TLDBModels.tl_materials">
+        <MappingFragment StoreEntitySet="tl_materials">
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tl_project_materials">
+      <EntityTypeMapping TypeName="TLDBModels.tl_project_materials">
+        <MappingFragment StoreEntitySet="tl_project_materials">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

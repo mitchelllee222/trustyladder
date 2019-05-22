@@ -15,10 +15,11 @@ namespace TrustyLadder.Models
     public partial class tl_project_materials
     {
         public int id { get; set; }
-        public Nullable<int> materialid { get; set; }
         public Nullable<int> projectid { get; set; }
+        public string description { get; set; }
+        public Nullable<double> cost { get; set; }
+        public Nullable<double> price { get; set; }
     
-        public virtual tl_materials tl_materials { get; set; }
         public virtual tl_projects tl_projects { get; set; }
     }
 }

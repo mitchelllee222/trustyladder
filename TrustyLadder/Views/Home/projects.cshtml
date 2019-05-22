@@ -55,10 +55,10 @@
 
 @using (Html.DevExtreme().NamedTemplate("projectMaterialTabContent"))
 {
-    @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_project_materials>()
+    @(Html.DevExtreme().DataGrid<TrustyLadder.Models.tl_materials>()
                             .DataSource(ds => ds.WebApi()
                             .RouteName("tl_materialsApi")
-                            .LoadAction("GetServiceAddressesByCustomer")
+                            .LoadAction("GetMaterialByProject")
                             .LoadParams(new
                             {
                                 customerId = new JS("masterGridId.id")
@@ -66,24 +66,15 @@
                             .InsertAction("Post")
                             .UpdateAction("Put")
                             .DeleteAction("Delete")
-                            .Key("ID")
+                            .Key("id")
                             )
                         .RemoteOperations(true)
                         .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("masterGridId.id")))
                         .Columns(columns =>
                         {
 
-                            columns.AddFor(m => m.BUSINESSNAME);
-
-                            columns.AddFor(m => m.ADDRESS1);
-
-                            columns.AddFor(m => m.ADDRESS2);
-
-                            columns.AddFor(m => m.CITY);
-
-                            columns.AddFor(m => m.STATE);
-
-                            columns.AddFor(m => m.ZIP);
+                            columns.AddFor(m => m.description);
+                            columns.AddFor(m => m.price);
                         })
                         .Editing(e => e
                                 .AllowAdding(true)

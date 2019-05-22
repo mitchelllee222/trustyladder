@@ -24,6 +24,7 @@ namespace TrustyLadder.Models.Controllers
                 i.id,
                 i.description,
                 i.price,
+                i.cost
             });
             return Request.CreateResponse(DataSourceLoader.Load(tl_materials, loadOptions));
         }
@@ -47,6 +48,9 @@ namespace TrustyLadder.Models.Controllers
                         select new
                         {
                             i.id,
+                            i.description,
+                            i.price,
+                            i.cost
                         };
             return Request.CreateResponse(DataSourceLoader.Load(query, loadOptions));
         }
@@ -72,7 +76,7 @@ namespace TrustyLadder.Models.Controllers
             var key = Convert.ToInt32(form.Get("key"));
             var model = _context.tl_materials.FirstOrDefault(item => item.id == key);
             if(model == null)
-                return Request.CreateResponse(HttpStatusCode.Conflict, "tl_materials not found");
+                return Request.CreateResponse(HttpStatusCode.Conflict, "Material not found");
 
             var values = JsonConvert.DeserializeObject<IDictionary>(form.Get("values"));
             PopulateModel(model, values);
@@ -100,8 +104,9 @@ namespace TrustyLadder.Models.Controllers
             string ID = nameof(tl_materials.id);
             string DESCRIPTION = nameof(tl_materials.description);
             string PRICE = nameof(tl_materials.price);
+            string COST = nameof(tl_materials.cost);
 
-            if(values.Contains(ID)) {
+            if (values.Contains(ID)) {
                 model.id = Convert.ToInt32(values[ID]);
             }
 
@@ -111,6 +116,11 @@ namespace TrustyLadder.Models.Controllers
 
             if(values.Contains(PRICE)) {
                 model.price = Convert.ToDouble(values[PRICE]);
+            }
+
+            if (values.Contains(COST))
+            {
+                model.cost = Convert.ToDouble(values[COST]);
             }
         }
 

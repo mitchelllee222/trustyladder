@@ -26,6 +26,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="45" />
           <Property Name="price" Type="double" />
+          <Property Name="cost" Type="double" />
         </EntityType>
         <EntityType Name="tl_project_materials">
           <Key>
@@ -33,7 +34,9 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="projectid" Type="int" />
-          <Property Name="materialid" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="45" />
+          <Property Name="cost" Type="double" />
+          <Property Name="price" Type="double" />
         </EntityType>
         <EntityType Name="tl_project_services">
           <Key>
@@ -84,18 +87,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fkprojectmaterialsmaterials">
-          <End Role="tl_materials" Type="Self.tl_materials" Multiplicity="0..1" />
-          <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tl_materials">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tl_project_materials">
-              <PropertyRef Name="materialid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FKProjectProjectMaterials">
           <End Role="tl_projects" Type="Self.tl_projects" Multiplicity="0..1" />
           <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
@@ -132,10 +123,6 @@
             <End Role="tl_customers" EntitySet="tl_customers" />
             <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
           </AssociationSet>
-          <AssociationSet Name="fkprojectmaterialsmaterials" Association="Self.fkprojectmaterialsmaterials">
-            <End Role="tl_materials" EntitySet="tl_materials" />
-            <End Role="tl_project_materials" EntitySet="tl_project_materials" />
-          </AssociationSet>
           <AssociationSet Name="FKProjectProjectMaterials" Association="Self.FKProjectProjectMaterials">
             <End Role="tl_projects" EntitySet="tl_projects" />
             <End Role="tl_project_materials" EntitySet="tl_project_materials" />
@@ -149,25 +136,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TLDBModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tl_materials">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="price" Type="Double" />
-          <NavigationProperty Name="tl_project_materials" Relationship="Self.materialmaster" FromRole="tl_materials" ToRole="tl_project_materials" />
-        </EntityType>
-        <EntityType Name="tl_project_materials">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="materialid" Type="Int32" />
-          <NavigationProperty Name="tl_materials" Relationship="Self.materialmaster" FromRole="tl_project_materials" ToRole="tl_materials" />
-          <Property Name="projectid" Type="Int32" />
-          <NavigationProperty Name="tl_projects" Relationship="TLDBModels.FKProjectProjectMaterials" FromRole="tl_project_materials" ToRole="tl_projects" />
-        </EntityType>
         <EntityType Name="tl_project_services">
           <Key>
             <PropertyRef Name="id" />
@@ -187,18 +155,6 @@
           <NavigationProperty Name="tl_project_services" Relationship="Self.servicemaster" FromRole="tl_services" ToRole="tl_project_services" />
           <Property Name="rate" Type="Double" />
         </EntityType>
-        <Association Name="materialmaster">
-          <End Role="tl_materials" Type="Self.tl_materials" Multiplicity="0..1" />
-          <End Role="tl_project_materials" Type="Self.tl_project_materials" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tl_materials">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tl_project_materials">
-              <PropertyRef Name="materialid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="servicemaster">
           <End Role="tl_services" Type="Self.tl_services" Multiplicity="0..1" />
           <End Role="tl_project_services" Type="Self.tl_project_services" Multiplicity="*" />
@@ -212,23 +168,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TLDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tl_materials" EntityType="Self.tl_materials" />
-          <EntitySet Name="tl_project_materials" EntityType="Self.tl_project_materials" />
           <EntitySet Name="tl_project_services" EntityType="Self.tl_project_services" />
           <EntitySet Name="tl_services" EntityType="Self.tl_services" />
-          <AssociationSet Name="materialmaster" Association="Self.materialmaster">
-            <End Role="tl_materials" EntitySet="tl_materials" />
-            <End Role="tl_project_materials" EntitySet="tl_project_materials" />
-          </AssociationSet>
           <AssociationSet Name="servicemaster" Association="Self.servicemaster">
             <End Role="tl_services" EntitySet="tl_services" />
             <End Role="tl_project_services" EntitySet="tl_project_services" />
           </AssociationSet>
           <EntitySet Name="tl_projects" EntityType="TLDBModels.tl_projects" />
-          <AssociationSet Name="FKProjectProjectMaterials" Association="TLDBModels.FKProjectProjectMaterials">
-            <End Role="tl_projects" EntitySet="tl_projects" />
-            <End Role="tl_project_materials" EntitySet="tl_project_materials" />
-          </AssociationSet>
           <AssociationSet Name="FKProjectProjectServices" Association="TLDBModels.FKProjectProjectServices">
             <End Role="tl_projects" EntitySet="tl_projects" />
             <End Role="tl_project_services" EntitySet="tl_project_services" />
@@ -239,6 +185,12 @@
             <End Role="tl_customers" EntitySet="tl_customers" />
             <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
           </AssociationSet>
+          <EntitySet Name="tl_materials" EntityType="TLDBModels.tl_materials" />
+          <EntitySet Name="tl_project_materials" EntityType="TLDBModels.tl_project_materials" />
+          <AssociationSet Name="FKProjectProjectMaterials" Association="TLDBModels.FKProjectProjectMaterials">
+            <End Role="tl_projects" EntitySet="tl_projects" />
+            <End Role="tl_project_materials" EntitySet="tl_project_materials" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="tl_projects">
           <Key>
@@ -247,21 +199,9 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="customerid" Type="Int32" />
           <Property Name="customerserviceaddressid" Type="Int32" />
-          <NavigationProperty Name="tl_project_materials" Relationship="TLDBModels.FKProjectProjectMaterials" FromRole="tl_projects" ToRole="tl_project_materials" />
           <NavigationProperty Name="tl_project_services" Relationship="TLDBModels.FKProjectProjectServices" FromRole="tl_projects" ToRole="tl_project_services" />
+          <NavigationProperty Name="tl_project_materials" Relationship="TLDBModels.FKProjectProjectMaterials" FromRole="tl_projects" ToRole="tl_project_materials" />
         </EntityType>
-        <Association Name="FKProjectProjectMaterials">
-          <End Type="TLDBModels.tl_projects" Role="tl_projects" Multiplicity="0..1" />
-          <End Type="TLDBModels.tl_project_materials" Role="tl_project_materials" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tl_projects">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tl_project_materials">
-              <PropertyRef Name="projectid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FKProjectProjectServices">
           <End Type="TLDBModels.tl_projects" Role="tl_projects" Multiplicity="0..1" />
           <End Type="TLDBModels.tl_project_services" Role="tl_project_services" Multiplicity="*" />
@@ -315,30 +255,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tl_materials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="cost" Type="Double" />
+        </EntityType>
+        <EntityType Name="tl_project_materials">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectid" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="cost" Type="Double" />
+          <Property Name="price" Type="Double" />
+          <NavigationProperty Name="tl_projects" Relationship="TLDBModels.FKProjectProjectMaterials" FromRole="tl_project_materials" ToRole="tl_projects" />
+        </EntityType>
+        <Association Name="FKProjectProjectMaterials">
+          <End Type="TLDBModels.tl_projects" Role="tl_projects" Multiplicity="0..1" />
+          <End Type="TLDBModels.tl_project_materials" Role="tl_project_materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tl_projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tl_project_materials">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TLDBModelsStoreContainer" CdmEntityContainer="TLDBEntities">
-          <EntitySetMapping Name="tl_materials">
-            <EntityTypeMapping TypeName="TLDBModels.tl_materials">
-              <MappingFragment StoreEntitySet="tl_materials">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="price" ColumnName="price" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tl_project_materials">
-            <EntityTypeMapping TypeName="TLDBModels.tl_project_materials">
-              <MappingFragment StoreEntitySet="tl_project_materials">
-                <ScalarProperty Name="projectid" ColumnName="projectid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="materialid" ColumnName="materialid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tl_project_services">
             <EntityTypeMapping TypeName="TLDBModels.tl_project_services">
               <MappingFragment StoreEntitySet="tl_project_services">
@@ -391,6 +345,27 @@
                 <ScalarProperty Name="address1" ColumnName="address1" />
                 <ScalarProperty Name="business_name" ColumnName="business_name" />
                 <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tl_materials">
+            <EntityTypeMapping TypeName="TLDBModels.tl_materials">
+              <MappingFragment StoreEntitySet="tl_materials">
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tl_project_materials">
+            <EntityTypeMapping TypeName="TLDBModels.tl_project_materials">
+              <MappingFragment StoreEntitySet="tl_project_materials">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
