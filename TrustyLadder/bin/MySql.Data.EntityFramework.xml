@@ -92,7 +92,7 @@
         </member>
         <member name="M:MySql.Data.EntityFramework.MySqlProviderFactoryResolver.ResolveProviderFactory(System.Data.Common.DbConnection)">
             <summary>
-            Returns the DbProviderFactory for the given connection.
+            Returns the <see cref="T:System.Data.Common.DbProviderFactory"/> for the given connection.
             </summary>
             <param name="connection">The database connection.</param>
             <returns>The provider factory for the connection.</returns>
@@ -111,15 +111,17 @@
         </member>
         <member name="T:MySql.Data.EntityFramework.MySqlModelCacheKey">
             <summary>
-            Represents a key value that uniquely identifies an Entity Framework model that has been loaded into memory.
+            Represents a key value that uniquely identifies an Entity Framework model that has been loaded into memory. 
             </summary>
         </member>
         <member name="M:MySql.Data.EntityFramework.MySqlModelCacheKey.Equals(System.Object)">
             <summary>
-            Determines whether the current cached model key is equal to the specified cached model key.
+            Determines whether the current cached model key is equal to the specified cached
+            model key.
             </summary>
             <param name="other">The cached model key to compare to the current cached model key.</param>
-            <returns><c>true</c> if the current cached model key is equal to the specified cached model key; otherwise, <c>false</c>.</returns>
+            <returns><c>true</c> if the current cached model key is equal to the specified cached model key;
+            otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:MySql.Data.EntityFramework.MySqlModelCacheKey.GetHashCode">
             <summary>
@@ -129,7 +131,12 @@
         </member>
         <member name="T:MySql.Data.EntityFramework.MySqlEFConfiguration">
             <summary>
-            Defines the configuration of an application to be used with Entity Framework.
+            Defines the configuration of an application to be used with Entity Framework. 
+            </summary>
+        </member>
+        <member name="M:MySql.Data.EntityFramework.MySqlEFConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:MySql.Data.EntityFramework.MySqlEFConfiguration"/> class.
             </summary>
         </member>
         <member name="T:MySql.Data.EntityFramework.MySqlExecutionStrategy">
@@ -194,54 +201,23 @@
             Back-off algorithm customized for MySql Cluster (NDB) errors.
             </summary>
         </member>
-        <member name="T:MySql.Data.EntityFramework.MySqlHistoryContext">
-            <summary>
-            Reads and writes migration history from the database during code first migrations.
-            </summary>
-        </member>
-        <member name="T:MySql.Data.EntityFramework.MySqlLogger">
-            <summary>
-            Enables the creation of MySQL logs for applications.
-            </summary>
-        </member>
         <member name="T:MySql.Data.EntityFramework.MySqlMigrationCodeGenerator">
             <summary>
             Class used to customized code generation
             to avoid dbo. prefix added on table names.
             </summary>
         </member>
-        <member name="M:MySql.Data.EntityFramework.MySqlMigrationCodeGenerator.Generate(System.Data.Entity.Migrations.Model.AddColumnOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
-            <summary>
-            Generates a migration operation to add a column.
-            </summary>
-            <param name="addColumnOperation">The operation that represents a column being added to a table.</param>
-            <param name="writer">The indented text writer.</param>
-        </member>
-        <member name="M:MySql.Data.EntityFramework.MySqlMigrationCodeGenerator.Generate(System.Data.Entity.Migrations.Model.AddForeignKeyOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
-            <summary>
-            Generates a migration operation to add a foreign key.
-            </summary>
-            <param name="addForeignKeyOperation">The operation that represents a foreing key constraint being added to a table.</param>
-            <param name="writer">The indented text writer.</param>
-        </member>
-        <member name="M:MySql.Data.EntityFramework.MySqlMigrationCodeGenerator.Generate(System.Data.Entity.Migrations.Model.AddPrimaryKeyOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
-            <summary>
-            Generates a migration operation to add a primary key to a table.
-            </summary>
-            <param name="addPrimaryKeyOperation">The operation that represents adding a primary key to a table.</param>
-            <param name="writer">The idented text writer.</param>
-        </member>
-        <member name="M:MySql.Data.EntityFramework.MySqlMigrationCodeGenerator.Generate(System.Data.Entity.Migrations.Model.AlterColumnOperation,System.Data.Entity.Migrations.Utilities.IndentedTextWriter)">
-            <summary>
-            Generates a migration operation to alter a column.
-            </summary>
-            <param name="alterColumnOperation">The operation that represents altering an existing column.</param>
-            <param name="writer">The indented text writer.</param>
-        </member>
         <member name="T:MySql.Data.EntityFramework.MySqlMigrationSqlGenerator">
             <summary>
             Implementation of a MySql's Sql generator for EF 4.3 data migrations.
             </summary>
+        </member>
+        <member name="M:MySql.Data.EntityFramework.MySqlMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.AddColumnOperation)">
+            <summary>
+            Generates a migration operation to add a column.
+            </summary>
+            <param name="op">The operation that represents a column being added to a table.</param>
+            <returns>A migration operation to add a column.</returns>
         </member>
         <member name="M:MySql.Data.EntityFramework.MySqlMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.DropColumnOperation)">
             <summary>
@@ -268,7 +244,7 @@
             <summary>
             Generates a migration operation to add a foreign key.
             </summary>
-            <param name="op">The operation that represents a foreing key constraint being added to a table.</param>
+            <param name="op">the operation that represents a foreing key constraint being added to a table.</param>
             <returns>A migration operation to add a foreign key constraint.</returns>
         </member>
         <member name="M:MySql.Data.EntityFramework.MySqlMigrationSqlGenerator.Generate(System.Data.Entity.Migrations.Model.ColumnModel)">

@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,11 +44,13 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExtreme.AspNet.Data, Version=1.4.7.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExtreme.AspNet.Data.1.4.7\lib\net40\DevExtreme.AspNet.Data.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExtreme.AspNet.Data, Version=2.5.1.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExtreme.AspNet.Data.2.5.1\lib\net452\DevExtreme.AspNet.Data.dll</HintPath>
     </Reference>
-    <Reference Include="DevExtreme.AspNet.Mvc">
+    <Reference Include="DevExtreme.AspNet.Mvc, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\DevExtreme\DevExtreme.AspNet.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -75,9 +78,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.12\Assemblies\v4.5.2\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
@@ -147,6 +149,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dx-diagram.css" />
+    <Content Include="Content\dx-diagram.min.css" />
+    <Content Include="Content\dx-gantt.css" />
+    <Content Include="Content\dx-gantt.min.css" />
     <Content Include="Content\dx.carmine.compact.css" />
     <Content Include="Content\dx.carmine.css" />
     <Content Include="Content\dx.common.css" />
@@ -163,10 +169,25 @@
     <Content Include="Content\dx.ios7.default.css" />
     <Content Include="Content\dx.light.compact.css" />
     <Content Include="Content\dx.light.css" />
+    <Content Include="Content\dx.material.blue.dark.compact.css" />
+    <Content Include="Content\dx.material.blue.dark.css" />
+    <Content Include="Content\dx.material.blue.light.compact.css" />
     <Content Include="Content\dx.material.blue.light.css" />
+    <Content Include="Content\dx.material.lime.dark.compact.css" />
+    <Content Include="Content\dx.material.lime.dark.css" />
+    <Content Include="Content\dx.material.lime.light.compact.css" />
     <Content Include="Content\dx.material.lime.light.css" />
+    <Content Include="Content\dx.material.orange.dark.compact.css" />
+    <Content Include="Content\dx.material.orange.dark.css" />
+    <Content Include="Content\dx.material.orange.light.compact.css" />
     <Content Include="Content\dx.material.orange.light.css" />
+    <Content Include="Content\dx.material.purple.dark.compact.css" />
+    <Content Include="Content\dx.material.purple.dark.css" />
+    <Content Include="Content\dx.material.purple.light.compact.css" />
     <Content Include="Content\dx.material.purple.light.css" />
+    <Content Include="Content\dx.material.teal.dark.compact.css" />
+    <Content Include="Content\dx.material.teal.dark.css" />
+    <Content Include="Content\dx.material.teal.light.compact.css" />
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
@@ -175,14 +196,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\SQL\tl_customers.sql" />
+    <Content Include="Models\SQL\tl_materials.sql" />
+    <Content Include="Models\SQL\tl_serviceaddresses.sql" />
+    <Content Include="Models\SQL\tl_services.sql" />
     <Content Include="Models\TLDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TLDBModel.edmx</DependentUpon>
       <LastGenOutput>TLDBModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\TLDBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TLDBModel.edmx</DependentUpon>
       <LastGenOutput>TLDBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\aspnet\dx.aspnet.data.js" />
@@ -197,6 +220,10 @@
     <Content Include="Scripts\cldr\supplemental.min.js" />
     <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\cldr\unresolved.min.js" />
+    <Content Include="Scripts\dx-diagram.js" />
+    <Content Include="Scripts\dx-diagram.min.js" />
+    <Content Include="Scripts\dx-gantt.js" />
+    <Content Include="Scripts\dx-gantt.min.js" />
     <Content Include="Scripts\dx.all.debug.js" />
     <Content Include="Scripts\dx.all.js" />
     <Content Include="Scripts\dx.mobile.debug.js" />
@@ -225,15 +252,18 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="ClassDiagram1.cd" />
     <EntityDeploy Include="Models\TLDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TLDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\TLDBModel.edmx.diagram">
       <DependentUpon>TLDBModel.edmx</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
-    <Content Include="ClassDiagram1.cd" />
+    <Content Include="Content\fonts\Roboto-700.ttf" />
+    <Content Include="Content\fonts\Roboto-700.woff" />
+    <Content Include="Content\fonts\Roboto-700.woff2" />
+    <None Include="Properties\PublishProfiles\IIS.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
@@ -243,16 +273,21 @@
     <Content Include="Scripts\jszip.min.js" />
     <Content Include="Scripts\localization\dx.messages.cs.js" />
     <Content Include="Scripts\localization\dx.messages.de.js" />
+    <Content Include="Scripts\localization\dx.messages.el.js" />
     <Content Include="Scripts\localization\dx.messages.en.js" />
     <Content Include="Scripts\localization\dx.messages.es.js" />
     <Content Include="Scripts\localization\dx.messages.fi.js" />
     <Content Include="Scripts\localization\dx.messages.fr.js" />
+    <Content Include="Scripts\localization\dx.messages.hu.js" />
     <Content Include="Scripts\localization\dx.messages.it.js" />
     <Content Include="Scripts\localization\dx.messages.ja.js" />
     <Content Include="Scripts\localization\dx.messages.nl.js" />
     <Content Include="Scripts\localization\dx.messages.pt.js" />
     <Content Include="Scripts\localization\dx.messages.ru.js" />
+    <Content Include="Scripts\localization\dx.messages.sl.js" />
     <Content Include="Scripts\localization\dx.messages.sv.js" />
+    <Content Include="Scripts\localization\dx.messages.tr.js" />
+    <Content Include="Scripts\localization\dx.messages.vi.js" />
     <Content Include="Scripts\localization\dx.messages.zh.js" />
     <Content Include="Scripts\vectormap-data\africa.js" />
     <Content Include="Scripts\vectormap-data\canada.js" />
@@ -348,7 +383,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ServicesDataGridController.cs" />
     <Compile Include="Controllers\tl_customersController.cs" />
     <Compile Include="Controllers\tl_materialsController.cs" />
     <Compile Include="Controllers\tl_projectsController.cs" />
@@ -357,8 +392,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\DataGridModels\InMemoryServicesDataGridContext.cs" />
+    <Compile Include="Models\DataGridModels\ServicesDataGrid.cs" />
     <Compile Include="Models\TLDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -402,6 +437,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\contact\" />
+    <Folder Include="Views\ServicesDataGrid\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -429,6 +465,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties DismissedDevExtremeVersion="19.2.5.0" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

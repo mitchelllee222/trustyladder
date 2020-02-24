@@ -25,6 +25,7 @@ namespace TrustyLadder.Models.Controllers
                 i.description,
                 i.rate,
             });
+
             return Request.CreateResponse(DataSourceLoader.Load(tl_services, loadOptions));
         }
 

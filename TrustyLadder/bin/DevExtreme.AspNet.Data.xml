@@ -10,7 +10,7 @@
             </summary>
             <typeparam name="T">The type of the data items to be aggregated.</typeparam>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.Aggregation.Aggregator`1.Accessor">
+        <member name="P:DevExtreme.AspNet.Data.Aggregation.Aggregator`1.Accessor">
             <summary>
             Allows reading data item properties.
             </summary>
@@ -48,100 +48,143 @@
         </member>
         <member name="T:DevExtreme.AspNet.Data.DataSourceLoader">
             <summary>
-            Provides static methods for loading data from collections that implement the IEnumerable&lt;T&gt; or IQueryable&lt;T&gt; interface.
+            Provides static methods for loading data from collections that implement the
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/> or <see cref="T:System.Linq.IQueryable`1"/> interface.
             </summary>
         </member>
         <member name="M:DevExtreme.AspNet.Data.DataSourceLoader.Load``1(System.Collections.Generic.IEnumerable{``0},DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
             <summary>
-            Loads data from a collection that implements the IEnumerable&lt;T&gt; interface.
+            Loads data from a collection that implements the <see cref="T:System.Collections.Generic.IEnumerable`1"/> interface.
             </summary>
             <typeparam name="T">The type of objects in the collection.</typeparam>
-            <param name="source">A collection that implements the IEnumerable&lt;T&gt; interface.</param>
+            <param name="source">A collection that implements the <see cref="T:System.Collections.Generic.IEnumerable`1"/> interface.</param>
             <param name="options">Data processing settings when loading data.</param>
             <returns>The load result.</returns>
         </member>
         <member name="M:DevExtreme.AspNet.Data.DataSourceLoader.Load``1(System.Linq.IQueryable{``0},DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
             <summary>
-            Loads data from a collection that implements the IQueryable&lt;T&gt; interface.
+            Loads data from a collection that implements the <see cref="T:System.Linq.IQueryable`1"/> interface.
             </summary>
             <typeparam name="T">The type of objects in the collection.</typeparam>
-            <param name="source">A collection that implements the IQueryable&lt;T&gt; interface.</param>
+            <param name="source">A collection that implements the <see cref="T:System.Linq.IQueryable`1"/> interface.</param>
             <param name="options">Data processing settings when loading data.</param>
             <returns>The load result.</returns>
         </member>
+        <member name="M:DevExtreme.AspNet.Data.DataSourceLoader.LoadAsync``1(System.Linq.IQueryable{``0},DevExtreme.AspNet.Data.DataSourceLoadOptionsBase,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously loads data from a collection that implements the <see cref="T:System.Linq.IQueryable`1"/> interface.
+            </summary>
+            <typeparam name="T">The type of objects in the collection.</typeparam>
+            <param name="source">A collection that implements the <see cref="T:System.Linq.IQueryable`1"/> interface.</param>
+            <param name="options">Data processing settings when loading data.</param>
+            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> object that delivers a cancellation notice to the running operation.</param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task`1"/> object that represents the asynchronous operation.
+            The task result contains the load result.
+            </returns>
+        </member>
         <member name="T:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase">
             <summary>
-            An abstract class with fields that specify data processing settings.
+            A class with properties that specify data processing settings.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RequireTotalCount">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.StringToLowerDefault">
+            <summary>
+            A global default value for the <see cref="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.StringToLower" /> property
+            </summary>
+        </member>
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RequireTotalCount">
             <summary>
             A flag indicating whether the total number of data objects is required.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RequireGroupCount">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RequireGroupCount">
             <summary>
             A flag indicating whether the number of top-level groups is required.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.IsCountQuery">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.IsCountQuery">
             <summary>
             A flag indicating whether the current query is made to get the total number of data objects.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Skip">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Skip">
             <summary>
             The number of data objects to be skipped from the start of the resulting set.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Take">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Take">
             <summary>
             The number of data objects to be loaded.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Sort">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Sort">
             <summary>
             A sort expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Group">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Group">
             <summary>
             A group expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Filter">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Filter">
             <summary>
             A filter expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.TotalSummary">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.TotalSummary">
             <summary>
             A total summary expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.GroupSummary">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.GroupSummary">
             <summary>
             A group summary expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Select">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Select">
             <summary>
             A select expression.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RemoteGrouping">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.PreSelect">
             <summary>
-            A flag that indicates whether grouping parameters must be translated into LINQ.
+            An array of data fields that limits the <see cref="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Select" /> expression.
+            The applied select expression is the intersection of <see cref="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.PreSelect" /> and <see cref="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.Select" />.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.PrimaryKey">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RemoteSelect">
+            <summary>
+            A flag that indicates whether the LINQ provider should execute the select expression.
+            If set to false, the select operation is performed in memory.
+            </summary>
+        </member>
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.RemoteGrouping">
+            <summary>
+            A flag that indicates whether the LINQ provider should execute grouping.
+            If set to false, the entire dataset is loaded and grouped in memory.
+            </summary>
+        </member>
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.PrimaryKey">
             <summary>
             An array of primary keys.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.DefaultSort">
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.DefaultSort">
             <summary>
             The data field to be used for sorting by default.
+            </summary>
+        </member>
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.StringToLower">
+            <summary>
+            A flag that indicates whether filter expressions should include a ToLower() call that makes string comparison case-insensitive.
+            Defaults to true for LINQ to Objects, false for any other provider.
+            </summary>
+        </member>
+        <member name="P:DevExtreme.AspNet.Data.DataSourceLoadOptionsBase.PaginateViaPrimaryKey">
+            <summary>
+            If this flag is enabled, keys and data are loaded via separate queries. This may result in a more efficient SQL execution plan.
             </summary>
         </member>
         <member name="T:DevExtreme.AspNet.Data.GroupingInfo">
@@ -149,12 +192,12 @@
             Represents a grouping level to be applied to data.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.GroupingInfo.GroupInterval">
+        <member name="P:DevExtreme.AspNet.Data.GroupingInfo.GroupInterval">
             <summary>
             A value that groups data in ranges of a given length or date/time period.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.GroupingInfo.IsExpanded">
+        <member name="P:DevExtreme.AspNet.Data.GroupingInfo.IsExpanded">
             <summary>
             A flag indicating whether the group's data objects should be returned.
             </summary>
@@ -196,22 +239,22 @@
             Represents a group in the resulting dataset.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.Group.key">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.Group.key">
             <summary>
             The group's key.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.Group.items">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.Group.items">
             <summary>
             Subgroups or data objects.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.Group.count">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.Group.count">
             <summary>
             The count of items in the group.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.Group.summary">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.Group.summary">
             <summary>
             Group summary calculation results.
             </summary>
@@ -221,22 +264,22 @@
             Represents a load result.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.LoadResult.data">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.LoadResult.data">
             <summary>
             A resulting dataset.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.LoadResult.totalCount">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.LoadResult.totalCount">
             <summary>
             The total number of data objects in the resulting dataset.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.LoadResult.groupCount">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.LoadResult.groupCount">
             <summary>
             The number of top-level groups in the resulting dataset.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.ResponseModel.LoadResult.summary">
+        <member name="P:DevExtreme.AspNet.Data.ResponseModel.LoadResult.summary">
             <summary>
             Total summary calculation results.
             </summary>
@@ -246,12 +289,12 @@
             Represents a sorting parameter.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.SortingInfo.Selector">
+        <member name="P:DevExtreme.AspNet.Data.SortingInfo.Selector">
             <summary>
             The data field to be used for sorting.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.SortingInfo.Desc">
+        <member name="P:DevExtreme.AspNet.Data.SortingInfo.Desc">
             <summary>
             A flag indicating whether data should be sorted in a descending order.
             </summary>
@@ -261,12 +304,12 @@
             Represents a group or total summary definition.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.SummaryInfo.Selector">
+        <member name="P:DevExtreme.AspNet.Data.SummaryInfo.Selector">
             <summary>
             The data field to be used for calculating the summary.
             </summary>
         </member>
-        <member name="F:DevExtreme.AspNet.Data.SummaryInfo.SummaryType">
+        <member name="P:DevExtreme.AspNet.Data.SummaryInfo.SummaryType">
             <summary>
             An aggregate function: "sum", "min", "max", "avg", or "count".
             </summary>

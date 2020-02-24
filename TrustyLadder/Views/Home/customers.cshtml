@@ -69,7 +69,7 @@
                             .InsertAction("Post")
                             .UpdateAction("Put")
                             .DeleteAction("Delete")
-                            .Key("ID")
+                            .Key("id")
                             )
                         .RemoteOperations(true)
                         .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("masterGridId.id")))
