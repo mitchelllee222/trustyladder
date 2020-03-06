@@ -64,7 +64,7 @@
                             .RouteName("tl_serviceaddressesApi")
                             .LoadAction("GetServiceAddressesByCustomer")
                             .LoadParams(new {
-                                customerId = new JS("masterGridId.id")
+                                customerid = new JS("masterGridId.id")
                             })
                             .InsertAction("Post")
                             .UpdateAction("Put")
@@ -100,7 +100,7 @@
 <script type="text/javascript">
     //<![CDATA[
     function onInitNewRow(e, parentID) {
-        e.data.CUSTOMERID = parentID;
+        e.data.customerid = parentID;
     }
     //]]>
 </script>
