@@ -1,7 +1,8 @@
-﻿tl_materialstl_materialstl_materialstl_materialstl_materialsCREATE TABLE `tl_materials` (
-  `id` int(11) NOT NULL,
-  `decription` varchar(45) DEFAULT NULL,
-  `rate` double DEFAULT NULL,
+﻿CREATE TABLE `tl_materials` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  `price` double DEFAULT NULL,
   `cost` double DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

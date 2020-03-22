@@ -59,7 +59,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="customerid" Type="int" />
           <Property Name="business_name" Type="varchar" MaxLength="50" />
           <Property Name="address1" Type="varchar" MaxLength="100" />
@@ -72,7 +72,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="rate" Type="double" Nullable="false" />
         </EntityType>
