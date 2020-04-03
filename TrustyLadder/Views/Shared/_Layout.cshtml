@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Trusty Ladder">
+    <meta name="author" content="Mitch Atchley">
 
+    <!--Window or Tab header and icon image.-->
     <title>TrustyLadder</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/ladder.ico" rel="shortcut icon" type="image/x-icon" />
 
     @Styles.Render("~/Content/bundle")
     @Styles.Render("~/Content/DevExtremeBundle")
@@ -18,6 +19,7 @@
 </head>
 
 <body>
+    <!--Navigation bar at the top of every page.-->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,11 +28,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Trusty Ladder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/ladder.png" style="vertical-align: middle; width: 40px; margin:4px; height:auto" />@Html.ActionLink("Trusty Ladder", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
                     <li>@Html.ActionLink("Customers", "Customers", "Home")</li>
                     <li>@Html.ActionLink("Materials", "Materials", "Home")</li>
