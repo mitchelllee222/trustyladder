@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="first_name" Type="varchar" MaxLength="45" />
           <Property Name="last_name" Type="varchar" MaxLength="45" />
           <Property Name="business_name" Type="varchar" MaxLength="45" />
@@ -23,7 +23,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="45" />
           <Property Name="price" Type="double" />
           <Property Name="cost" Type="double" />
@@ -38,22 +38,13 @@
           <Property Name="cost" Type="double" />
           <Property Name="price" Type="double" />
         </EntityType>
-        <EntityType Name="tl_project_services">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="serviceid" Type="int" />
-          <Property Name="projectid" Type="int" />
-        </EntityType>
         <EntityType Name="tl_projects">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="customerid" Type="int" />
           <Property Name="serviceaddressid" Type="int" />
-          <Property Name="customerserviceaddressid" Type="int" />
         </EntityType>
         <EntityType Name="tl_serviceaddresses">
           <Key>
@@ -76,6 +67,13 @@
           <Property Name="description" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="rate" Type="double" Nullable="false" />
         </EntityType>
+        <EntityType Name="tl_states">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="2" />
+        </EntityType>
         <Association Name="fk_tl_serviceaddresses_tl_customers">
           <End Role="tl_customers" Type="Self.tl_customers" Multiplicity="0..1" />
           <End Role="tl_serviceaddresses" Type="Self.tl_serviceaddresses" Multiplicity="*" />
@@ -92,10 +90,10 @@
           <EntitySet Name="tl_customers" EntityType="Self.tl_customers" Schema="sys" store:Type="Tables" />
           <EntitySet Name="tl_materials" EntityType="Self.tl_materials" Schema="sys" store:Type="Tables" />
           <EntitySet Name="tl_project_materials" EntityType="Self.tl_project_materials" Schema="sys" store:Type="Tables" />
-          <EntitySet Name="tl_project_services" EntityType="Self.tl_project_services" Schema="sys" store:Type="Tables" />
           <EntitySet Name="tl_projects" EntityType="Self.tl_projects" Schema="sys" store:Type="Tables" />
           <EntitySet Name="tl_serviceaddresses" EntityType="Self.tl_serviceaddresses" Schema="sys" store:Type="Tables" />
           <EntitySet Name="tl_services" EntityType="Self.tl_services" Schema="sys" store:Type="Tables" />
+          <EntitySet Name="tl_states" EntityType="Self.tl_states" Schema="sys" store:Type="Tables" />
           <AssociationSet Name="fk_tl_serviceaddresses_tl_customers" Association="Self.fk_tl_serviceaddresses_tl_customers">
             <End Role="tl_customers" EntitySet="tl_customers" />
             <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
@@ -108,15 +106,15 @@
         <EntityContainer Name="TLDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tl_customers" EntityType="TLDBModels.tl_customers" />
           <EntitySet Name="tl_project_materials" EntityType="TLDBModels.tl_project_materials" />
-          <EntitySet Name="tl_project_services" EntityType="TLDBModels.tl_project_services" />
           <EntitySet Name="tl_serviceaddresses" EntityType="TLDBModels.tl_serviceaddresses" />
           <AssociationSet Name="fk_tl_serviceaddresses_tl_customers" Association="TLDBModels.fk_tl_serviceaddresses_tl_customers">
             <End Role="tl_customers" EntitySet="tl_customers" />
             <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
           </AssociationSet>
           <EntitySet Name="tl_services" EntityType="TLDBModels.tl_services" />
-          <EntitySet Name="tl_projects" EntityType="TLDBModels.tl_projects" />
           <EntitySet Name="tl_materials" EntityType="TLDBModels.tl_materials" />
+          <EntitySet Name="tl_states" EntityType="TLDBModels.tl_states" />
+          <EntitySet Name="tl_projects" EntityType="TLDBModels.tl_projects" />
         </EntityContainer>
         <EntityType Name="tl_customers">
           <Key>
@@ -142,14 +140,6 @@
           <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="cost" Type="Double" />
           <Property Name="price" Type="Double" />
-        </EntityType>
-        <EntityType Name="tl_project_services">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="serviceid" Type="Int32" />
-          <Property Name="projectid" Type="Int32" />
         </EntityType>
         <EntityType Name="tl_serviceaddresses">
           <Key>
@@ -185,15 +175,6 @@
           <Property Name="description" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="rate" Type="Double" Nullable="false" />
         </EntityType>
-        <EntityType Name="tl_projects">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="customerid" Type="Int32" />
-          <Property Name="serviceaddressid" Type="Int32" />
-          <Property Name="customerserviceaddressid" Type="Int32" />
-        </EntityType>
         <EntityType Name="tl_materials">
           <Key>
             <PropertyRef Name="id" />
@@ -202,6 +183,21 @@
           <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="price" Type="Double" />
           <Property Name="cost" Type="Double" />
+        </EntityType>
+        <EntityType Name="tl_states">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tl_projects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="serviceaddressid" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -235,15 +231,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tl_project_services">
-            <EntityTypeMapping TypeName="TLDBModels.tl_project_services">
-              <MappingFragment StoreEntitySet="tl_project_services">
-                <ScalarProperty Name="projectid" ColumnName="projectid" />
-                <ScalarProperty Name="serviceid" ColumnName="serviceid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tl_serviceaddresses">
             <EntityTypeMapping TypeName="TLDBModels.tl_serviceaddresses">
               <MappingFragment StoreEntitySet="tl_serviceaddresses">
@@ -267,22 +254,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tl_projects">
-            <EntityTypeMapping TypeName="TLDBModels.tl_projects">
-              <MappingFragment StoreEntitySet="tl_projects">
-                <ScalarProperty Name="customerserviceaddressid" ColumnName="customerserviceaddressid" />
-                <ScalarProperty Name="serviceaddressid" ColumnName="serviceaddressid" />
-                <ScalarProperty Name="customerid" ColumnName="customerid" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tl_materials">
             <EntityTypeMapping TypeName="TLDBModels.tl_materials">
               <MappingFragment StoreEntitySet="tl_materials">
                 <ScalarProperty Name="cost" ColumnName="cost" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tl_states">
+            <EntityTypeMapping TypeName="TLDBModels.tl_states">
+              <MappingFragment StoreEntitySet="tl_states">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tl_projects">
+            <EntityTypeMapping TypeName="TLDBModels.tl_projects">
+              <MappingFragment StoreEntitySet="tl_projects">
+                <ScalarProperty Name="serviceaddressid" ColumnName="serviceaddressid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

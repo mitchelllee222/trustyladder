@@ -36,15 +36,15 @@ public partial class TLDBEntities : DbContext
 
     public virtual DbSet<tl_project_materials> tl_project_materials { get; set; }
 
-    public virtual DbSet<tl_project_services> tl_project_services { get; set; }
-
     public virtual DbSet<tl_serviceaddresses> tl_serviceaddresses { get; set; }
 
     public virtual DbSet<tl_services> tl_services { get; set; }
 
-    public virtual DbSet<tl_projects> tl_projects { get; set; }
-
     public virtual DbSet<tl_materials> tl_materials { get; set; }
+
+    public virtual DbSet<tl_states> tl_states { get; set; }
+
+    public virtual DbSet<tl_projects> tl_projects { get; set; }
 
 }
 

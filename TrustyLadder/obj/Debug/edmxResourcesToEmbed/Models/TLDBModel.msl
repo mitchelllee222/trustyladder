@@ -27,15 +27,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tl_project_services">
-      <EntityTypeMapping TypeName="TLDBModels.tl_project_services">
-        <MappingFragment StoreEntitySet="tl_project_services">
-          <ScalarProperty Name="projectid" ColumnName="projectid" />
-          <ScalarProperty Name="serviceid" ColumnName="serviceid" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tl_serviceaddresses">
       <EntityTypeMapping TypeName="TLDBModels.tl_serviceaddresses">
         <MappingFragment StoreEntitySet="tl_serviceaddresses">
@@ -59,22 +50,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tl_projects">
-      <EntityTypeMapping TypeName="TLDBModels.tl_projects">
-        <MappingFragment StoreEntitySet="tl_projects">
-          <ScalarProperty Name="customerserviceaddressid" ColumnName="customerserviceaddressid" />
-          <ScalarProperty Name="serviceaddressid" ColumnName="serviceaddressid" />
-          <ScalarProperty Name="customerid" ColumnName="customerid" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tl_materials">
       <EntityTypeMapping TypeName="TLDBModels.tl_materials">
         <MappingFragment StoreEntitySet="tl_materials">
           <ScalarProperty Name="cost" ColumnName="cost" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tl_states">
+      <EntityTypeMapping TypeName="TLDBModels.tl_states">
+        <MappingFragment StoreEntitySet="tl_states">
+          <ScalarProperty Name="state" ColumnName="state" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

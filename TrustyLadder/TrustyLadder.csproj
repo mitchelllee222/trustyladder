@@ -198,8 +198,12 @@
     <Content Include="Global.asax" />
     <Content Include="Models\SQL\tl_customers.sql" />
     <Content Include="Models\SQL\tl_materials.sql" />
+    <Content Include="Models\SQL\tl_projects.sql" />
+    <Content Include="Models\SQL\tl_projectservices.sql" />
     <Content Include="Models\SQL\tl_serviceaddresses.sql" />
     <Content Include="Models\SQL\tl_services.sql" />
+    <Content Include="Models\SQL\tl_states.sql" />
+    <Content Include="Models\SQL\tl_states_insert.sql" />
     <Content Include="Models\TLDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TLDBModel.Context.cs</LastGenOutput>
@@ -389,6 +393,7 @@
     <Compile Include="Controllers\tl_projectsController.cs" />
     <Compile Include="Controllers\tl_serviceaddressesController.cs" />
     <Compile Include="Controllers\tl_servicesController.cs" />
+    <Compile Include="Controllers\tl_statesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -421,13 +426,13 @@
     <Compile Include="Models\tl_project_materials.cs">
       <DependentUpon>TLDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tl_project_services.cs">
-      <DependentUpon>TLDBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tl_serviceaddresses.cs">
       <DependentUpon>TLDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tl_services.cs">
+      <DependentUpon>TLDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tl_states.cs">
       <DependentUpon>TLDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -438,6 +443,7 @@
   <ItemGroup>
     <Folder Include="Views\contact\" />
     <Folder Include="Views\ServicesDataGrid\" />
+    <Folder Include="Views\tl_states\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

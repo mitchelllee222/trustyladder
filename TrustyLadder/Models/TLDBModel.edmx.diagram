@@ -6,12 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="428e0503048249a19ee7765c9951bf4f" Name="Diagram1">
         <EntityTypeShape EntityType="TLDBModels.tl_customers" Width="1.5" PointX="0.75" PointY="1" />
-        <EntityTypeShape EntityType="TLDBModels.tl_project_services" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="TLDBModels.tl_serviceaddresses" Width="1.5" PointX="3" PointY="1.125" />
         <AssociationConnector Association="TLDBModels.fk_tl_serviceaddresses_tl_customers" />
         <EntityTypeShape EntityType="TLDBModels.tl_services" Width="1.5" PointX="7.375" PointY="4.75" />
-        <EntityTypeShape EntityType="TLDBModels.tl_projects" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="TLDBModels.tl_materials" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TLDBModels.tl_states" Width="1.5" PointX="10.5" PointY="1.375" />
+        <EntityTypeShape EntityType="TLDBModels.tl_projects" Width="1.5" PointX="3.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

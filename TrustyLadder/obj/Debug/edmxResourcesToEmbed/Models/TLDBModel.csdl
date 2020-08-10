@@ -3,15 +3,14 @@
   <EntityContainer Name="TLDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tl_customers" EntityType="TLDBModels.tl_customers" />
     <EntitySet Name="tl_project_materials" EntityType="TLDBModels.tl_project_materials" />
-    <EntitySet Name="tl_project_services" EntityType="TLDBModels.tl_project_services" />
     <EntitySet Name="tl_serviceaddresses" EntityType="TLDBModels.tl_serviceaddresses" />
     <AssociationSet Name="fk_tl_serviceaddresses_tl_customers" Association="TLDBModels.fk_tl_serviceaddresses_tl_customers">
       <End Role="tl_customers" EntitySet="tl_customers" />
       <End Role="tl_serviceaddresses" EntitySet="tl_serviceaddresses" />
     </AssociationSet>
     <EntitySet Name="tl_services" EntityType="TLDBModels.tl_services" />
-    <EntitySet Name="tl_projects" EntityType="TLDBModels.tl_projects" />
     <EntitySet Name="tl_materials" EntityType="TLDBModels.tl_materials" />
+    <EntitySet Name="tl_states" EntityType="TLDBModels.tl_states" />
   </EntityContainer>
   <EntityType Name="tl_customers">
     <Key>
@@ -37,14 +36,6 @@
     <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="cost" Type="Double" />
     <Property Name="price" Type="Double" />
-  </EntityType>
-  <EntityType Name="tl_project_services">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="serviceid" Type="Int32" />
-    <Property Name="projectid" Type="Int32" />
   </EntityType>
   <EntityType Name="tl_serviceaddresses">
     <Key>
@@ -80,15 +71,6 @@
     <Property Name="description" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="rate" Type="Double" Nullable="false" />
   </EntityType>
-  <EntityType Name="tl_projects">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="customerid" Type="Int32" />
-    <Property Name="serviceaddressid" Type="Int32" />
-    <Property Name="customerserviceaddressid" Type="Int32" />
-  </EntityType>
   <EntityType Name="tl_materials">
     <Key>
       <PropertyRef Name="id" />
@@ -97,5 +79,12 @@
     <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="price" Type="Double" />
     <Property Name="cost" Type="Double" />
+  </EntityType>
+  <EntityType Name="tl_states">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
