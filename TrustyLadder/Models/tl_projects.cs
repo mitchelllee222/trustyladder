@@ -24,6 +24,8 @@ public partial class tl_projects
 
     public Nullable<int> serviceaddressid { get; set; }
 
+    public string description { get; set; }
+
 }
 
 }

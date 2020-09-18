@@ -143,7 +143,7 @@ namespace TrustyLadder.Models.Controllers
             }
 
             if(values.Contains(STATE)) {
-                model.state = Convert.ToString(values[STATE]);
+                model.state = Convert.ToInt32(values[STATE]);
             }
 
             if(values.Contains(ZIP)) {

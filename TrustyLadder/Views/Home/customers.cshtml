@@ -28,7 +28,13 @@
 
         columns.AddFor(m => m.city);
 
-        columns.AddFor(m => m.state);
+        columns.AddFor(m => m.state)
+            .Lookup(lookup => lookup.DataSource(d => d.WebApi()
+                                                      .RouteName("tl_statesApi")
+                                                      .LoadAction("Get")
+                                                      .Key("id"))
+                                    .DisplayExpr("state")
+                                    .ValueExpr("id"));
 
         columns.AddFor(m => m.zip_code);
     })
@@ -84,7 +90,13 @@
 
                             columns.AddFor(m => m.city);
 
-                            columns.AddFor(m => m.state);
+                            columns.AddFor(m => m.state)
+                                   .Lookup(lookup => lookup.DataSource(d => d.WebApi()
+                                                                             .RouteName("tl_statesApi")
+                                                                             .LoadAction("Get")
+                                                                             .Key("id"))
+                                                            .DisplayExpr("state")
+                                                            .ValueExpr("id"));
 
                             columns.AddFor(m => m.zip_code);
                         })

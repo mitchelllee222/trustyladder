@@ -11,6 +11,7 @@
     <EntitySet Name="tl_services" EntityType="TLDBModels.tl_services" />
     <EntitySet Name="tl_materials" EntityType="TLDBModels.tl_materials" />
     <EntitySet Name="tl_states" EntityType="TLDBModels.tl_states" />
+    <EntitySet Name="tl_projects" EntityType="TLDBModels.tl_projects" />
   </EntityContainer>
   <EntityType Name="tl_customers">
     <Key>
@@ -23,7 +24,7 @@
     <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
     <Property Name="zip_code" Type="Int32" />
     <NavigationProperty Name="tl_serviceaddresses" Relationship="TLDBModels.fk_tl_serviceaddresses_tl_customers" FromRole="tl_customers" ToRole="tl_serviceaddresses" />
   </EntityType>
@@ -47,7 +48,7 @@
     <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
     <Property Name="zip_code" Type="Int32" />
     <NavigationProperty Name="tl_customers" Relationship="TLDBModels.fk_tl_serviceaddresses_tl_customers" FromRole="tl_serviceaddresses" ToRole="tl_customers" />
   </EntityType>
@@ -86,5 +87,13 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="state" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tl_projects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerid" Type="Int32" />
+    <Property Name="serviceaddressid" Type="Int32" />
   </EntityType>
 </Schema>

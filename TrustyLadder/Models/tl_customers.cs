@@ -41,7 +41,7 @@ public partial class tl_customers
 
     public string city { get; set; }
 
-    public string state { get; set; }
+    public Nullable<int> state { get; set; }
 
     public Nullable<int> zip_code { get; set; }
 

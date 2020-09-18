@@ -68,5 +68,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tl_projects">
+      <EntityTypeMapping TypeName="TLDBModels.tl_projects">
+        <MappingFragment StoreEntitySet="tl_projects">
+          <ScalarProperty Name="serviceaddressid" ColumnName="serviceaddressid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

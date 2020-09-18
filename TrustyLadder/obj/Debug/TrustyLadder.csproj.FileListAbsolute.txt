@@ -105,3 +105,4 @@ C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\bin\ru\DevExpress.Xpo.
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\obj\Debug\TrustyLadder.csproj.CopyComplete
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\bin\Ubiety.Dns.Core.dll
 C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\bin\Renci.SshNet.dll
+C:\Users\mitch\Documents\GitHub\trustyladder\TrustyLadder\obj\Debug\TrustyLadder.csprojAssemblyReference.cache

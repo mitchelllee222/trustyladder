@@ -11,7 +11,7 @@
     <Property Name="address1" Type="varchar" MaxLength="100" />
     <Property Name="address2" Type="varchar" MaxLength="100" />
     <Property Name="city" Type="varchar" MaxLength="50" />
-    <Property Name="state" Type="varchar" MaxLength="2" />
+    <Property Name="state" Type="int" />
     <Property Name="zip_code" Type="int" />
   </EntityType>
   <EntityType Name="tl_materials">
@@ -33,6 +33,14 @@
     <Property Name="cost" Type="double" />
     <Property Name="price" Type="double" />
   </EntityType>
+  <EntityType Name="tl_projects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerid" Type="int" />
+    <Property Name="serviceaddressid" Type="int" />
+  </EntityType>
   <EntityType Name="tl_serviceaddresses">
     <Key>
       <PropertyRef Name="id" />
@@ -43,7 +51,7 @@
     <Property Name="address1" Type="varchar" MaxLength="100" />
     <Property Name="address2" Type="varchar" MaxLength="100" />
     <Property Name="city" Type="varchar" MaxLength="50" />
-    <Property Name="state" Type="varchar" MaxLength="2" />
+    <Property Name="state" Type="int" />
     <Property Name="zip_code" Type="int" />
   </EntityType>
   <EntityType Name="tl_services">
@@ -77,6 +85,7 @@
     <EntitySet Name="tl_customers" EntityType="Self.tl_customers" Schema="sys" store:Type="Tables" />
     <EntitySet Name="tl_materials" EntityType="Self.tl_materials" Schema="sys" store:Type="Tables" />
     <EntitySet Name="tl_project_materials" EntityType="Self.tl_project_materials" Schema="sys" store:Type="Tables" />
+    <EntitySet Name="tl_projects" EntityType="Self.tl_projects" Schema="sys" store:Type="Tables" />
     <EntitySet Name="tl_serviceaddresses" EntityType="Self.tl_serviceaddresses" Schema="sys" store:Type="Tables" />
     <EntitySet Name="tl_services" EntityType="Self.tl_services" Schema="sys" store:Type="Tables" />
     <EntitySet Name="tl_states" EntityType="Self.tl_states" Schema="sys" store:Type="Tables" />

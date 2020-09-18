@@ -199,7 +199,8 @@
     <Content Include="Models\SQL\tl_customers.sql" />
     <Content Include="Models\SQL\tl_materials.sql" />
     <Content Include="Models\SQL\tl_projects.sql" />
-    <Content Include="Models\SQL\tl_projectservices.sql" />
+    <Content Include="Models\SQL\tl_project_materials.sql" />
+    <Content Include="Models\SQL\tl_project_services.sql" />
     <Content Include="Models\SQL\tl_serviceaddresses.sql" />
     <Content Include="Models\SQL\tl_services.sql" />
     <Content Include="Models\SQL\tl_states.sql" />
@@ -424,6 +425,9 @@
       <DependentUpon>TLDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tl_project_materials.cs">
+      <DependentUpon>TLDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tl_project_services.cs">
       <DependentUpon>TLDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tl_serviceaddresses.cs">
