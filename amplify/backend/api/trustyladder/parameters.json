@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "trustyladder",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-01-02T03:57:28.762Z"
+}

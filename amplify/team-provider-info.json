@@ -23,6 +23,14 @@
       "StackName": "amplify-trustyladder-staging-224212",
       "StackId": "arn:aws:cloudformation:us-east-1:188426401085:stack/amplify-trustyladder-staging-224212/4d6621b0-a472-11ee-9317-12ecb805adc5",
       "AmplifyAppId": "d1kcgq6spbdji7"
+    },
+    "categories": {
+      "auth": {
+        "trustyladder": {}
+      },
+      "api": {
+        "trustyladder": {}
+      }
     }
   }
 }

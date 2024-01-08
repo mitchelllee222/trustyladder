@@ -28,6 +28,29 @@
   color: #61dafb;
 }
 
+.navbar-logo {
+  height: 30px; /* Adjust the height as needed */
+  width: auto; /* This will maintain the aspect ratio */
+  object-fit: contain; /* Ensures the image is scaled properly */
+}
+
+.full-width {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* This ensures padding doesn't affect the total width */
+}
+
+.navbaritem-hover {
+  background-color: initial;
+  color: initial;
+}
+
+div.navbaritem-hover:hover, .navbaritem-hover:hover {
+  background-color: hsl(220, 95%, 30%) !important;
+  color: white !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
